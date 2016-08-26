@@ -54,11 +54,7 @@ var grid0 = [
 	["white", 4]
 ];
 
-// var grids = [];
-// grids.push(grid1);
-// grids.push(grid2);
-// grids.push(grid3);
-// grids.push(grid4);
+
 
 var screenWidth = $(window).width();
 var screenHeight = $(window).height();
@@ -107,24 +103,51 @@ grid1 = randomRotate(grid1);
 grid2 = randomRotate(grid2);
 grid3 = randomRotate(grid3);
 
+var grids = [];
+grids.push(grid1);
+grids.push(grid2);
+grids.push(grid3);
+grids.push(grid0);
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+var order = [1,2,3,0];
+shuffle(order);
 
 for (var i = 0; i < grid0.length; i++) {
-	$('table:eq(0) th:eq(' + i + ')')
+	$('table:eq('+ order[0]+') th:eq(' + i + ')')
 		.addClass(grid0[i][0])
 		.append('<span>' + grid0[i][1] + '</span>');
 }
 for (var i = 0; i < grid1.length; i++) {
-	$('table:eq(1) th:eq(' + i + ')')
+	$('table:eq('+ order[1]+') th:eq(' + i + ')')
 		.addClass(grid1[i][0])
 		.append('<span>' + grid1[i][1] + '</span>');
 }
 for (var i = 0; i < grid2.length; i++) {
-	$('table:eq(2) th:eq(' + i + ')')
+	$('table:eq('+ order[2]+') th:eq(' + i + ')')
 		.addClass(grid2[i][0])
 		.append('<span>' + grid2[i][1] + '</span>');
 }
 for (var i = 0; i < grid3.length; i++) {
-	$('table:eq(3) th:eq(' + i + ')')
+	$('table:eq('+ order[3]+') th:eq(' + i + ')')
 		.addClass(grid3[i][0])
 		.append('<span>' + grid3[i][1] + '</span>');
 }
