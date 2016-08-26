@@ -171,6 +171,7 @@ reset();
 
 
 $('.timer').width(cellSize * 6 + 'px');
+$('.refresher').width(cellSize * 6 + 'px');
 var count = 75;
 
 var timer = setInterval(function() {
@@ -181,6 +182,7 @@ var timer = setInterval(function() {
 var hrCounter = 75 * 3;
 var hrTimer = setInterval(function() {
 	hrCounter--;
+	$(".refresher").width(hrCounter / 75 / 3 * cellSize * 6 +'px');
     if(hrCounter == 1) {location.reload();};
 }, 1000);
 
