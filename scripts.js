@@ -133,11 +133,17 @@ for (var i = 0; i < grid3.length; i++) {
 $('span').css('font-size', cellSize * .6 + 'px');
 
 //randomize start and start/goal
-
-while($('.goal').length < 3) {
-	var position = Math.floor(Math.random() * $('span').length);
-	$('span:eq('+position+')').addClass('goal');
+function reset(){
+	$('span').each(function(){
+		$(this).removeClass('goal');
+	});
+	while($('.goal').length < 3) {
+		var position = Math.floor(Math.random() * $('span').length);
+		$('span:eq('+position+')').addClass('goal');
+	}	
 }
+
+reset();
 
 
 
@@ -147,10 +153,16 @@ var count = 90;
 var timer = setInterval(function() {
 	count--;
     $(".timer").width(count / 90 * cellSize * 6 +'px');
-    if(count == 1) location.reload();
+    if(count == 1) {reset(); count = 90;}
+}, 1000);
+var hrCounter = 60 * 10;
+var hrTimer = setInterval(function() {
+	hrCounter--;
+    if(hrCounter == 1) {location.reload();};
 }, 1000);
 
 $('body').click(function(){
-	location.reload();
+	count = 90;
+	reset();
 });
 $(window).resize(function(){location.reload();});
