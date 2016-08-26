@@ -148,21 +148,21 @@ reset();
 
 
 $('.timer').width(cellSize * 6 + 'px');
-var count = 85;
+var count = 75;
 
 var timer = setInterval(function() {
 	count--;
-    $(".timer").width(count / 85 * cellSize * 6 +'px');
-    if(count == 1) {reset(); count = 85;}
+    $(".timer").width(count / 75 * cellSize * 6 +'px');
+    if(count == 1) {reset(); count = 75;}
 }, 1000);
-var hrCounter = 85 * 5;
+var hrCounter = 75 * 3;
 var hrTimer = setInterval(function() {
 	hrCounter--;
     if(hrCounter == 1) {location.reload();};
 }, 1000);
 
 $('body').click(function(){
-	count = 85;
+	count = 75;
 	reset();
 });
 $(window).resize(function(){location.reload();});
