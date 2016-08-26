@@ -172,22 +172,22 @@ reset();
 
 $('.timer').width(cellSize * 6 + 'px');
 $('.refresher').width(cellSize * 6 + 'px');
-var count = 75;
+var count = 60;
 
 var timer = setInterval(function() {
 	count--;
-    $(".timer").width(count / 75 * cellSize * 6 +'px');
-    if(count == 1) {reset(); count = 75;}
+    $(".timer").width(count / 60 * cellSize * 6 +'px');
+    if(count == 1) {reset(); count = 60;}
 }, 1000);
-var hrCounter = 75 * 3;
+var hrCounter = 60 * 3;
 var hrTimer = setInterval(function() {
 	hrCounter--;
-	$(".refresher").width(hrCounter / 75 / 3 * cellSize * 6 +'px');
+	$(".refresher").width(hrCounter / 60 / 3 * cellSize * 6 +'px');
     if(hrCounter == 1) {location.reload();};
 }, 1000);
 
 $('body').click(function(){
-	count = 75;
+	count = 60;
 	reset();
 });
 $(window).resize(function(){location.reload();});
