@@ -153,9 +153,9 @@ var count = 85;
 var timer = setInterval(function() {
 	count--;
     $(".timer").width(count / 85 * cellSize * 6 +'px');
-    if(count == 1) {reset(); count = 75;}
+    if(count == 1) {reset(); count = 85;}
 }, 1000);
-var hrCounter = 60 * 5;
+var hrCounter = 85 * 5;
 var hrTimer = setInterval(function() {
 	hrCounter--;
     if(hrCounter == 1) {location.reload();};
